@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04d4333928985b4a85d2df6a986694a, type: 3}
+  m_Name: Floor_Data
+  m_EditorClassIdentifier: 
+  materials:
+  - materialName: RedBrick
+    materialSprite: {fileID: 0}
+    material: {fileID: 2100000, guid: ee19e7bdbd2923340aa8973e1d4230b1, type: 2}
+  - materialName: WoodFloor
+    materialSprite: {fileID: 0}
+    material: {fileID: 2100000, guid: 74c7b8e3ed8d60740ad629198f468a2e, type: 2}
+  - materialName: PebbledGravel
+    materialSprite: {fileID: 0}
+    material: {fileID: 2100000, guid: cfd22c3f14ed7cd43ae1d0bdde543ae4, type: 2}
