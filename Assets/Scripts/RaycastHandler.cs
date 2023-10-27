@@ -17,11 +17,9 @@ public class RaycastHandler : MonoBehaviour
 
     [Header("Material Selection UI")]
     [SerializeField] GameObject materialCanvas;
-    [SerializeField] Transform contentTransform; 
-    [SerializeField] GameObject materialSelectionPrefab; 
+    [SerializeField] Transform contentTransform;
+    [SerializeField] GameObject materialSelectionPrefab;
 
-    [Header("Material Data")]
-    [SerializeField] MaterialsList materialsList;
 
     private RaycastHit hit;
     private GameObject currentTarget;
@@ -58,10 +56,39 @@ public class RaycastHandler : MonoBehaviour
                 HandleMaterialInteraction();
                 isTargeted = true;
             }
+            else if (hit.collider.CompareTag("Drawer"))
+            {
+                HandleDrawerInteraction();
+                isTargeted = true;
+            }
+
         }
 
         if (!isTargeted)
             ResetInteractions();
+    }
+    void HandleDrawerInteraction()
+    {
+        currentTarget = hit.collider.gameObject;
+
+        if (promptTextE != null)
+        {
+            promptTextE.enabled = true;
+        }
+
+        if (reticle != null)
+        {
+            reticle.color = interactColor;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DrawerController drawerController = currentTarget.GetComponent<DrawerController>();
+            if (drawerController != null)
+            {
+                drawerController.ToggleDrawer();
+            }
+        }
     }
 
     void HandleSwitchInteraction()
@@ -93,20 +120,26 @@ public class RaycastHandler : MonoBehaviour
             reticle.color = interactColor;
 
         if (Input.GetKeyDown(KeyCode.M))
-            ShowMaterialSelection();
+        {
+            brainCamera.enabled = false;
+            MaterialInfo materialInfo = currentTarget.GetComponent<MaterialInfo>();
+            if (materialInfo != null)
+            {
+                ShowMaterialSelection(materialInfo.AllowedMaterials);
+            }
+        }
     }
 
-    void ShowMaterialSelection()
+    void ShowMaterialSelection(MaterialsList list)
     {
         if (materialCanvas != null)
         {
-            brainCamera.enabled = false;
             materialCanvas.SetActive(true);
 
             foreach (Transform child in contentTransform)
                 Destroy(child.gameObject);
 
-            foreach (MaterialChoice choice in materialsList.materials)
+            foreach (MaterialChoice choice in list.materials)
             {
                 GameObject item = Instantiate(materialSelectionPrefab, contentTransform);
                 item.GetComponent<MaterialSelectionItem>().Initialize(choice, currentTarget);
@@ -128,12 +161,9 @@ public class RaycastHandler : MonoBehaviour
         currentTarget = null;
 
         if (materialCanvas != null)
-                materialCanvas.SetActive(false);
+            materialCanvas.SetActive(false);
 
         if (brainCamera != null)
             brainCamera.enabled = true;
     }
-
-    //each object with a material tag will have to have a component MaterialInfo, cause based on each one certain materials will be able
-    // to be applied and not just one list     [SerializeField] MaterialsList materialsList; like here.
 }

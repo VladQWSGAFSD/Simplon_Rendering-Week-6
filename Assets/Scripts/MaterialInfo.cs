@@ -2,5 +2,7 @@ using UnityEngine;
 
 public class MaterialInfo : MonoBehaviour
 {
-    public MaterialsList materialData;
+    [SerializeField] MaterialsList allowedMaterials;
+
+    public MaterialsList AllowedMaterials => allowedMaterials;
 }
