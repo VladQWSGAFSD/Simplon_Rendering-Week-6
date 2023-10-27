@@ -10,7 +10,7 @@ public class KeysInputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             Debug.Log("0 ressed");
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

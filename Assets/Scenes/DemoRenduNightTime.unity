@@ -48280,6 +48280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torch: {fileID: 393140678}
+  materialsCanvas: {fileID: 0}
 --- !u!4 &2069855519
 Transform:
   m_ObjectHideFlags: 0
@@ -55239,7 +55240,12 @@ MonoBehaviour:
   reticle: {fileID: 887955761}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   interactColor: {r: 0, g: 1, b: 0, a: 1}
-  promptText: {fileID: 592800846}
+  promptTextM: {fileID: 0}
+  promptTextE: {fileID: 592800846}
+  brainCamera: {fileID: 0}
+  materialCanvas: {fileID: 0}
+  contentTransform: {fileID: 0}
+  materialSelectionPrefab: {fileID: 0}
 --- !u!114 &7130084152264972991
 MonoBehaviour:
   m_ObjectHideFlags: 0
