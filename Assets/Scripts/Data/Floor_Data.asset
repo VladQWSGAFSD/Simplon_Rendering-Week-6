@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
   - materialName: RedBrick
-    materialSprite: {fileID: 0}
+    materialSprite: {fileID: 21300000, guid: f7720470b2b57c449b14f978b07290b6, type: 3}
     material: {fileID: 2100000, guid: ee19e7bdbd2923340aa8973e1d4230b1, type: 2}
   - materialName: WoodFloor
-    materialSprite: {fileID: 0}
+    materialSprite: {fileID: 21300000, guid: 1009d45201c3edb48a43579cddbcbec5, type: 3}
     material: {fileID: 2100000, guid: 74c7b8e3ed8d60740ad629198f468a2e, type: 2}
   - materialName: PebbledGravel
-    materialSprite: {fileID: 0}
+    materialSprite: {fileID: 21300000, guid: 5cbb9fef38eff654fbb979d9d95ae2ab, type: 3}
     material: {fileID: 2100000, guid: cfd22c3f14ed7cd43ae1d0bdde543ae4, type: 2}
